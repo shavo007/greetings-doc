@@ -1,0 +1,36 @@
+get:
+  tags:
+    - Greeting
+  summary: Get greeting 
+  description: |
+    Some description of the operation. 
+    You can use `markdown` here.
+  operationId: getGreeting
+  parameters:
+    - name: name
+      in: query
+      description: Optional name in returned message
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'read:greetings'
+    - api_key: []
+
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Greeting.yaml
+          example:
+            id: 1000
+            message: Hello Docker
+    '403':
+      description: Forbidden
+  x-code-samples: 
+    - lang: Javascript
+      label: NodeJS
+      source: 
+        $ref: ../code_samples/Javascript/greetings/get.js   

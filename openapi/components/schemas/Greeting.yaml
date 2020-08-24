@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    description: Id
+    type: integer
+    example: 1000
+  message:
+    description: Message
+    type: string
+    minLength: 1
+    example: Hello Docker
